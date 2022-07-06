@@ -56,7 +56,70 @@ var callback = function(name){
 callbackExample("Pablo Picasso", function(name){
     return "Hola " + name;
 });
+
+// Same as above but with callback function as a var parameter
+callbackExample("Pablo Picasso", function(name){
+    return "Hola " + name;
+});
+
 // same as above but with anonymous function or arrow function or lambda whatever
 callbackExample("Astor Piazzola", (name) => {
     return "Hola " + name;
 });
+
+//More about arrow functions
+
+const hello = () => {
+   const es6 = 'ES6';
+   return `Hello ${es6}`; 
+};
+
+const powers = [1,2,3,4,5].map(
+    (number, index) => Math.pow(number,index));
+
+const add = (n1,n2) => n1+n2;
+
+const milesToKm = miles => miles * 1.60934;
+
+log(hello());
+log(powers);
+log(add(100,100));
+log(milesToKm(300));
+
+//Array and object destruction
+
+const getUser = () => {
+return {
+    name: 'John',
+    surname: 'Doe',
+    gender: 'male',
+    address: {
+    country: 'United States',
+    city: 'California',
+    postCode: 'CA',
+    fullAddress: {
+        doorNumber: 22,
+        street: 'LA st'
+    }
+    },
+    age: 29
+}
+};
+
+const user = getUser();
+
+// const name = user.name;
+// const age = user.age;
+const country = user.address.country;
+const doorNumber = user.address.fullAddress.doorNumber;
+
+const { name, age, address : {country : theCountry } } = user;
+const { address : { fullAddress : { doorNumber : number } } } = user;
+
+log(name);
+log(age);
+log(country);
+log(doorNumber);
+  
+
+
