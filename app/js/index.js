@@ -230,3 +230,43 @@ houdine.sleep();
 houdine.sleep();
 houdine.wakeUp();
 
+console.log(`######################################`);
+console.log(`Promisses`);
+
+const namesPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(['Jhon', 'Miles', 'Bill', 'Wes']);
+    }, 3000);
+
+    setTimeout(() => {
+        reject("no data back from the server, there was an error");
+    }, 5000);
+});
+
+const surenamesPromise = new Promise((resolve, reject) => {
+    setTimeout(()=>{
+        resolve(['Coltrane', 'Davis', 'Evans', 'Montegomery']);
+    }, 3000);
+    setTimeout(()=>{
+        reject("no data back from the server, there was an error");
+    }, 5000);
+});
+
+// promise.then(response => {
+//     log(response);
+// }).catch(error => {
+//     log(error);
+// });
+
+Promise.all([namesPromise, surenamesPromise]).then(data => {
+    const [names,surenames] = data; 
+    for (let i = 0; i < names.length; i++) {
+        const name = names[i];
+        const surname = surnames[i];
+        console.log(`${name} ${surname}`);
+    }
+    
+}).catch(error => {
+    log(error);
+});
+
