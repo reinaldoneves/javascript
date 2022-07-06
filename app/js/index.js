@@ -159,7 +159,34 @@ class Animal {
 
 }
 
-const rex = new Animal("Rex Rex", 2);
+class Dog extends Animal{
+    constructor(name, age, breed){
+        super(name, age);
+        this.breed = breed;
+    }
+
+    logBreed() {
+        log(`${this.name} is a ${this.breed}`);
+      }
+
+    logAgeFromDog(){
+        super.logAge();
+    }
+
+}
+
+class Cat extends Animal{
+    constructor(name, age){
+        super(name,age);
+    }
+
+    logAgeFromCat(){
+        super.logAge();
+    }
+
+}
+
+const rex = new Animal("Rex Rex", 12);
 
 rex.eat();
 rex.sleep();
@@ -170,7 +197,7 @@ rex.logAge();
 
 log(`######################################`);
 
-const lassie = new Animal("Lassie", 3);
+const lassie = new Animal("Lassie", 23);
 
 lassie.eat();
 lassie.sleep();
@@ -178,3 +205,28 @@ lassie.wakeUp();
 lassie.sleep();
 lassie.wakeUp();
 lassie.logAge();
+
+const july = new Dog("Rex Rex", 20);
+july.logBreed();
+july.logAgeFromDog();
+july.eat();
+july.sleep();
+july.wakeUp();
+july.sleep();
+july.wakeUp();
+
+const houdine = new Cat("Hon hon", 4);
+
+houdine.logAgeFromCat();
+houdine.eat();
+houdine.sleep();
+houdine.sleep();
+houdine.sleep();
+houdine.sleep();
+houdine.sleep();
+houdine.sleep();
+houdine.sleep();
+houdine.sleep();
+houdine.sleep();
+houdine.wakeUp();
+
