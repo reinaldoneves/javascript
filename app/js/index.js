@@ -121,5 +121,60 @@ log(age);
 log(country);
 log(doorNumber);
   
+//###################################
+
+console.log("ES6 Classes");
+
+function log(x){
+    console.log(x);
+}
+
+class Animal {
+    constructor(name, age){
+        log(`${name} is an animal and he was born`);
+        this.name = name;
+        this.age = age;
+    }
 
 
+    static iAmAstaticMethod(){
+        log(`I am a static method inside of an Animal class`);
+    }
+
+    eat(){
+        log(`${this.name} is eating`);
+    }
+
+    sleep(){
+        log(`${this.name} is sleeping`);
+    }
+
+    wakeUp(){
+        log(`${this.name} is waking up`);
+    }
+
+    logAge(){
+        log(`${this.name} is ${this.age} years old`);
+    }
+
+}
+
+const rex = new Animal("Rex Rex", 2);
+
+rex.eat();
+rex.sleep();
+rex.wakeUp();
+rex.sleep();
+rex.wakeUp();
+rex.logAge();
+
+log(`######################################`);
+
+const lassie = new Animal("Lassie", 3);
+
+lassie.eat();
+lassie.sleep();
+lassie.wakeUp();
+lassie.sleep();
+lassie.wakeUp();
+lassie.logAge();
